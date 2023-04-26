@@ -25,6 +25,7 @@ jobs:
     - name: Create Database
         mkdir -p database
         touch database/database.sqlite
+        
     - name: Build Assets
       run: npm run build
         
