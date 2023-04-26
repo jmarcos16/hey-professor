@@ -24,11 +24,10 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
         mkdir -p database
-        touch database/database.sqlite
-        
+        touch database/database.sqlite  
     - name: Build Assets
       run: npm run build
-        
+      
     - name: Execute tests (Unit and Feature tests) via PEST
       env:
         DB_CONNECTION: sqlite
