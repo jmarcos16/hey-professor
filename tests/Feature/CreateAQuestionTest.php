@@ -22,14 +22,14 @@ it('should be able to create a new question bigger than 255 characters', functio
     assertDatabaseHas('questions', ['question' => str_repeat('*', 260) . '?']);
 });
 
-// it('should checke if ends with question mark ?', function () {
-//     $request = post(route('question.store'), [
-//         'question' => str_repeat('*', 10),
-//     ]);
+it('should checke if ends with question mark ?', function () {
+    $request = post(route('question.store'), [
+        'question' => str_repeat('*', 10),
+    ]);
 
-//     $request->assertSessionHasErrors('question');
-//     assertDatabaseCount('questions', 0);
-// });
+    $request->assertSessionHasErrors('question');
+    assertDatabaseCount('questions', 0);
+});
 
 it('should have at last 10 characters', function () {
     $request = post(route('question.store'), [
