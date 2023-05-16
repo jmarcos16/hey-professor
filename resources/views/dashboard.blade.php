@@ -17,6 +17,20 @@
 
         </x-form>
 
+        <hr class="border-gray-400 dark:border-gray-700 border-dashed my-4">
+
+        {{-- Listagem de perguntas --}}
+
+        <div class="dark:text-gray-100 text-xl mb-2 uppercase font-bold">Lista de perguntas</div>
+
+        <div class="dark:text-gray-200 space-y-4">
+
+            @foreach ($questions as $item)
+                <x-question :question="$item" />
+            @endforeach
+
+        </div>
+
     </x-container>
 
 </x-app-layout>
