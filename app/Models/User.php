@@ -43,4 +43,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function votes() : \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function like(Question $question): void
+    {
+        $this->votes()->create([
+            'question_id' => $question->id,
+            'like'        => 1,
+            'unlike'      => 0,
+        ]);
+    }
 }
