@@ -1,8 +1,6 @@
 <?php
 
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\assertDatabaseHas;
-use function Pest\Laravel\post;
+use function Pest\Laravel\{actingAs, assertDatabaseHas, post};
 
 it('should be able to vote up a question', function () {
     $user     = \App\Models\User::factory()->create();
@@ -12,7 +10,7 @@ it('should be able to vote up a question', function () {
 
     post(route('question.vote', $question))
     ->assertRedirect();
-    
+
     assertDatabaseHas('votes', [
         'question_id' => $question->id,
         'like'        => 1,

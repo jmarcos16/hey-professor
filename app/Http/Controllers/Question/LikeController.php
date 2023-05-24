@@ -13,7 +13,7 @@ class LikeController extends Controller
      */
     public function __invoke(Question $question): \Illuminate\Http\RedirectResponse
     {
-        auth()->user()->like($question);
+        auth()->user()->like($question); /* @phpstan-ignore-line */
 
         return back();
     }

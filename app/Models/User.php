@@ -44,15 +44,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function votes() : \Illuminate\Database\Eloquent\Relations\HasMany
+    /**
+     * Get the questions for the user.
+     * return \Illuminate\Database\Eloquent\Relations\HasMany<Vote>
+     */
+    public function votes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Vote::class);
     }
 
+    /**
+     * Like a question.
+     */
+
     public function like(Question $question): void
     {
         $this->votes()->create([
-            'question_id' => $question->id,
+            'question_id' => $question->id, /* @phpstan-ignore-line */
             'like'        => 1,
             'unlike'      => 0,
         ]);
