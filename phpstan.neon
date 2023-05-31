@@ -1,4 +1,5 @@
 parameters:
+    checkGenericClassInNonGenericObjectType: true
 
     paths:
         - app/

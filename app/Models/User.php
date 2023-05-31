@@ -56,7 +56,6 @@ class User extends Authenticatable
     /**
      * Like a question.
      */
-
     public function like(Question $question): void
     {
         $this->votes()->updateOrCreate(
