@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Question;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
-use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
@@ -13,7 +12,7 @@ class LikeController extends Controller
      */
     public function __invoke(Question $question): \Illuminate\Http\RedirectResponse
     {
-        auth()->user()->like($question); /* @phpstan-ignore-line */
+        user()->like($question);
 
         return back();
     }

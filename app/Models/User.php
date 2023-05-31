@@ -60,7 +60,7 @@ class User extends Authenticatable
     public function like(Question $question): void
     {
         $this->votes()->updateOrCreate(
-            ['question_id' => $question->id, /* @phpstan-ignore-line */],
+            ['question_id' => $question->id],
             [
                 'like'   => 1,
                 'unlike' => 0,
