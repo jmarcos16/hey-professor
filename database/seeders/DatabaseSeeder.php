@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Question;
-use App\Models\User;
+use App\Models\{Question, User};
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        Question::factory(10)->create();
+        Question::factory(100)->create();
     }
 }
