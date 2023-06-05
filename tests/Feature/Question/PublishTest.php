@@ -17,3 +17,7 @@ it('should be able to publish a question', function () {
 
     expect($question->draft)->toBe(false);
 });
+
+it('should make sure that only the person who has created the question can publish the question', function () {
+
+});
