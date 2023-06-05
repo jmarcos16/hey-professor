@@ -13,7 +13,10 @@ class QuestionController extends Controller
             'question' => ['required', 'min:10', 'ends_with:?'],
         ]);
 
-        Question::query()->create($attributes);
+        Question::query()->create([
+            'question' => request('question'),
+            'draft'    => true,
+        ]);
 
         return to_route('dashboard');
     }

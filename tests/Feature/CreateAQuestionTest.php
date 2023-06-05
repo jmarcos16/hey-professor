@@ -36,3 +36,17 @@ it('should have at last 10 characters', function () {
     $request->assertSessionHasErrors('question');
     assertDatabaseCount('questions', 0);
 });
+
+it('should create as a draft all the time', function () {
+    $user = User::factory()->create();
+    actingAs($user);
+
+    post(route('question.store'), [
+        'question' => str_repeat('*', 260) . '?',
+    ]);
+
+    assertDatabaseHas('questions', [
+        'question' => str_repeat('*', 260) . '?',
+        'draft'    => true,
+    ]);
+});

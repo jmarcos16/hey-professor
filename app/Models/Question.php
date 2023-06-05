@@ -13,6 +13,13 @@ class Question extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'draft' => 'boolean',
+    ];
+
     public function votes(): HasMany
     {
         return $this->hasMany(Vote::class);

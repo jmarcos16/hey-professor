@@ -18,6 +18,7 @@ class QuestionFactory extends Factory
     {
         return [
             'question' => $this->faker->sentence() . '?',
+            'draft'    => $this->faker->boolean(),
         ];
     }
 }
