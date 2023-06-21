@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->hasMany(Vote::class);
     }
 
+    public function questions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Question::class, 'created_by');
+    }
+
     /**
      * Like a question.
      */

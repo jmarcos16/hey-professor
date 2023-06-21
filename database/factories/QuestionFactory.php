@@ -17,8 +17,9 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            'question' => $this->faker->sentence() . '?',
-            'draft'    => $this->faker->boolean(),
+            'question'   => $this->faker->sentence() . '?',
+            'draft'      => $this->faker->boolean(),
+            'created_by' => \App\Models\User::factory(),
         ];
     }
 }
