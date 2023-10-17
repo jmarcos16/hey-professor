@@ -39,17 +39,19 @@
                             <x-table.td>{{ $question->question }}</x-table.td>
                             <x-table.td>
 
-                                <form action="{{ route('question.publish', $question) }}" method="post">
-                                    @csrf
-                                    @method('PUT')
-                                    <x-primary-button type="submit"> Publish </x-primary-button>
-                                </form>
+                                <div class="flex gap-2">
+                                    <form action="{{ route('question.publish', $question) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <x-primary-button type="submit"> Publish </x-primary-button>
+                                    </form>
 
-                                <form action="{{ route('question.destroy', $question) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <x-primary-button type="submit"> Delete </x-primary-button>
-                                </form>
+                                    <form action="{{ route('question.destroy', $question) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-primary-button type="submit"> Delete </x-primary-button>
+                                    </form>
+                                </div>
 
                             </x-table.td>
                         </x-table.tr>
@@ -78,7 +80,13 @@
                     @foreach ($questions->where('draft', false) as $question)
                         <x-table.tr>
                             <x-table.td>{{ $question->question }}</x-table.td>
-                            <x-table.td>Delete</x-table.td>
+                            <x-table.td>
+                                <form action="{{ route('question.destroy', $question) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-primary-button type="submit"> Delete </x-primary-button>
+                                </form>
+                            </x-table.td>
                         </x-table.tr>
                     @endforeach
                 </tbody>
